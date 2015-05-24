@@ -14,27 +14,10 @@ import org.slf4j.LoggerFactory;
 
 import service.BookServiceLocal;
 
-@Stateless
-@WebService
-public class BookServiceWS implements BookServiceRemote {
+public class BookServiceWS {
 
 	private static final Logger LOG = LoggerFactory
 			.getLogger(BookServiceWS.class);
 	
-	@EJB
-	private BookServiceLocal bookService;
-
-	@WebMethod(operationName = "getBooks")
-	@Override
-	public List<Book> getBooks() {
-		return bookService.getBooks();
-	}
-
-	@WebMethod(operationName = "addBooks")
-	@Override
-	public int addBook(Book book) {
-		LOG.info("book to add: {}", book);
-		return 0;
-	}
 
 }
